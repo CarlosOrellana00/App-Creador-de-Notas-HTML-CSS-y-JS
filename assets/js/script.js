@@ -17,5 +17,13 @@ addBtn.addEventListener("click", e => {
   e.preventDefault();
   let noteTitle = titleTag.value,
   noteDesc = descTag.value;
-  console.log(noteTitle, noteDesc);
+
+  if(noteTitle || noteDesc){
+    //trayendo la fecha -> dia, mes, año
+    let dateObj = new Date();
+    day = dateObj.getDate(),
+    month = dateObj.getMonth(),
+    year = dateObj.getFullYear();
+    console.log(day, month,year);
+  }
 });
