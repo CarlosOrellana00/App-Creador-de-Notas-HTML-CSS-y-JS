@@ -5,6 +5,10 @@ titleTag = popupBox.querySelector("input"),
 descTag = popupBox.querySelector("textarea"),
 addBtn = popupBox.querySelector("button");
 
+const months = ["Enero", "Febrero", "Marzo","Abril",
+                "Mayo", "Junio", "Julio", "Agosto",
+               "Septiembre", "Octubre", " Noviembre", "Diciembre"];
+
 addBox.addEventListener("click", () => {
   popupBox.classList.add("show");
 });
@@ -22,8 +26,14 @@ addBtn.addEventListener("click", e => {
     //trayendo la fecha -> dia, mes, año
     let dateObj = new Date();
     day = dateObj.getDate(),
-    month = dateObj.getMonth(),
+    month = months[dateObj.getMonth()],
     year = dateObj.getFullYear();
-    console.log(day, month,year);
+
+    let noteInfo ={
+      title: noteTitle, description: noteDesc,
+      date: `${day} ${month} ${year}`
+    }
+
+    console.log(noteInfo);
   }
 });
