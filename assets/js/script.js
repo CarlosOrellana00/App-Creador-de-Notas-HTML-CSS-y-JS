@@ -8,6 +8,8 @@ addBtn = popupBox.querySelector("button");
 const months = ["Enero", "Febrero", "Marzo","Abril",
                 "Mayo", "Junio", "Julio", "Agosto",
                "Septiembre", "Octubre", " Noviembre", "Diciembre"];
+// llamando de localStorage y analisando las notas
+const notes = JSON.parse(localStorage.getItem("notes") || "[]");
 
 addBox.addEventListener("click", () => {
   popupBox.classList.add("show");
@@ -33,7 +35,9 @@ addBtn.addEventListener("click", e => {
       title: noteTitle, description: noteDesc,
       date: `${day} ${month} ${year}`
     }
-
-    console.log(noteInfo);
+    const notes = [];
+    notes.push(noteInfo); //agregando nueva nota
+    localStorage.setItem("notes", JSON.stringify(notes));//guardando nota en localstorage
+    closeIcon.click();
   }
 });
